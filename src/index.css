@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+:root {
+  /* Official Hubert OS Dark Theme (Default) */
+  --color-primary: #94D5A6;
+  --color-on-primary: #00391D;
+  --color-secondary: #B3CDB7;
+  --color-on-secondary: #1F3526;
+  --color-tertiary: #ABC7FF;
+  --color-on-tertiary: #0A2F61;
+  --color-error: #FFB4AB;
+  --color-on-error: #690005;
+  --color-surface: #111411;
+  --color-on-surface: #E1E3DE;
+  --color-surface-variant: #1D201D;
+  --color-on-surface-variant: #C0C9BF;
+  --color-outline: #404941;
+  --color-shadow: #000000;
+  --color-hover: #ABC7FF;
+  --color-on-hover: #0A2F61;
+
+  /* Frosted Glass & Translucent Tokens (Dark Theme) */
+  --wallpaper-overlay: rgba(10, 14, 11, 0.45);
+  --surface-glass: rgba(17, 20, 17, 0.78);
+  --surface-glass-variant: rgba(29, 32, 29, 0.72);
+  --surface-glass-subtle: rgba(29, 32, 29, 0.45);
+  --surface-glass-hover: rgba(35, 42, 36, 0.82);
+  --surface-glass-active: rgba(45, 54, 46, 0.88);
+  --glass-border: rgba(64, 73, 65, 0.55);
+  --glass-border-focus: rgba(148, 213, 166, 0.75);
+  --glass-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.45);
+  --glass-blur: blur(16px);
+  --glass-blur-sm: blur(10px);
+
+  /* Terminal palette (Dark) */
+  --term-bg: transparent;
+  --term-fg: #E1E3DE;
+  --term-cursor: #E1E3DE;
+  --term-sel-bg: rgba(64, 73, 65, 0.75);
+  --term-sel-fg: #E1E3DE;
+  --term-green: #94D5A6;
+  --term-blue: #ABC7FF;
+  --term-red: #FFB4AB;
+  --term-cyan: #B3CDB7;
+  --term-yellow: #B3CDB7;
+
+  /* Soleria's Character Identity (Exclusively for Soleria avatar/art) */
+  --soleria-purple-deep: #472061;
+  --soleria-purple-accent: #8E54C2;
+  --soleria-holo-cyan: #5ce1e6;
+  --soleria-holo-magenta: #e056fd;
+  --soleria-holo-gold: #ffbe0b;
+}
+
+[data-theme="light"] {
+  /* Official Hubert OS Light Theme */
+  --color-primary: #296742;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #4C6452;
+  --color-on-secondary: #FFFFFF;
+  --color-tertiary: #3E5C90;
+  --color-on-tertiary: #FFFFFF;
+  --color-error: #BA1A1A;
+  --color-on-error: #FFFFFF;
+  --color-surface: #F8FAF4;
+  --color-on-surface: #191C19;
+  --color-surface-variant: #ECEFE9;
+  --color-on-surface-variant: #404941;
+  --color-outline: #C0C9BF;
+  --color-shadow: #000000;
+  --color-hover: #3E5C90;
+  --color-on-hover: #FFFFFF;
+
+  /* Frosted Glass & Translucent Tokens (Light Theme) */
+  --wallpaper-overlay: rgba(240, 244, 238, 0.38);
+  --surface-glass: rgba(248, 250, 244, 0.82);
+  --surface-glass-variant: rgba(236, 239, 233, 0.76);
+  --surface-glass-subtle: rgba(236, 239, 233, 0.50);
+  --surface-glass-hover: rgba(228, 233, 225, 0.88);
+  --surface-glass-active: rgba(218, 224, 214, 0.94);
+  --glass-border: rgba(192, 201, 191, 0.65);
+  --glass-border-focus: rgba(41, 103, 66, 0.80);
+  --glass-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.15);
+  --glass-blur: blur(16px);
+  --glass-blur-sm: blur(10px);
+
+  /* Terminal palette (Light) */
+  --term-bg: transparent;
+  --term-fg: #191C19;
+  --term-cursor: #191C19;
+  --term-sel-bg: rgba(220, 229, 218, 0.85);
+  --term-sel-fg: #191C19;
+  --term-green: #296742;
+  --term-blue: #3E5C90;
+  --term-red: #BA1A1A;
+  --term-cyan: #617965;
+  --term-yellow: #4C6452;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* Enable selection in text inputs, terminal output, and readable content */
+input, textarea, [data-selectable="true"] {
+  user-select: text;
+}
+
+/* Custom scrollbar tokens with frosted translucency */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Terminal text selection */
+::selection {
+  background-color: var(--term-sel-bg);
+  color: var(--term-sel-fg);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(16px)) {
+  :root {
+    --surface-glass: rgba(17, 20, 17, 0.94);
+    --surface-glass-variant: rgba(29, 32, 29, 0.92);
+  }
+  [data-theme="light"] {
+    --surface-glass: rgba(248, 250, 244, 0.95);
+    --surface-glass-variant: rgba(236, 239, 233, 0.94);
+  }
+}
+
+/* Utility animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

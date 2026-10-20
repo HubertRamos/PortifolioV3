@@ -1,0 +1,6 @@
+{
+  "name": "Hubert OS — Portfólio Interativo & Soleria",
+  "description": "Desktop Linux contemporâneo inspirado em Hyprland com terminal interativo, assistente digital Soleria e integração com repositórios do GitHub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
